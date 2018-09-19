@@ -26,5 +26,9 @@ public class welcomeActivity extends AppCompatActivity {
         welcomeText = findViewById(R.id.welcomeText);
         welcomeText.setText("Welcome " + name + "! Thank you for signing up via this form!");
 
+
+
+        //TODO: implement back button
+
     }
 }
