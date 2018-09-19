@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">cis3515-lab2</string>
+
+    <string name="name_label">Name:</string>
+    <string name="email_label">Email:</string>
+    <string name="password_label">Password:</string>
+    <string name="password_label2">Re-enter Password:</string>
+
+    <string name="example_name">Jane Doe</string>
+    <string name="example_email">jane.doe@address.com</string>
+    <string name="example_pass">P@ssw0r!D</string>
+
+    <string name="save">Save</string>
 </resources>
