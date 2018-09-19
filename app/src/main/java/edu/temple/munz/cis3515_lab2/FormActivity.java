@@ -42,6 +42,7 @@ public class FormActivity extends AppCompatActivity {
                 String email = emailInput.getText().toString();
                 String password = passwordInput.getText().toString();
                 String password2 = passwordInput2.getText().toString();
+                //TODO: sanitize inputs (strip spaces, etc)
 
                 //check if any fields are blank
                 if (name.isEmpty() || email.isEmpty() || password.isEmpty() || password2.isEmpty()) {
@@ -51,6 +52,8 @@ public class FormActivity extends AppCompatActivity {
                 else if(!password.equals(password2)) {
                     Toast.makeText(FormActivity.this, ERROR_PASSWORD_MISMATCH, Toast.LENGTH_LONG).show();
                 }
+                //TODO: implement password length requirements
+                //TODO: make sure email address is in correct form (regex)
                 //user input is good, send it to the welcome page
                 else {
                     //create Intent
