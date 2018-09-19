@@ -9,6 +9,7 @@
     <string name="example_name">Jane Doe</string>
     <string name="example_email">jane.doe@address.com</string>
     <string name="example_pass">P@ssw0r!D</string>
+    <string name="pass_info">Passwords must be at least 8 characters long.</string>
 
     <string name="save">Save</string>
 
