@@ -1,5 +1,6 @@
 package edu.temple.munz.cis3515_lab2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +13,12 @@ public class FormActivity extends AppCompatActivity {
 
     TextView nameInput, emailInput, passwordInput, passwordInput2;
     Button saveButton;
-    String ERROR_EMPTY_FIELD = "Please fill out all fields.";
-    String ERROR_PASSWORD_MISMATCH = "Passwords must match.";
+
+    public final String ERROR_EMPTY_FIELD = "Please fill out all fields.";
+    public final String ERROR_PASSWORD_MISMATCH = "Passwords must match.";
+    public final int REQUEST_CODE = 117;
+
+    public final String NAME_KEY = "nmk";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +53,13 @@ public class FormActivity extends AppCompatActivity {
                 }
                 //user input is good, send it to the welcome page
                 else {
-
+                    //create Intent
+                    Intent startActivityIntent = new Intent(FormActivity.this, welcomeActivity.class);
+                    //pass in the user's name to the intent
+                    startActivityIntent.putExtra(NAME_KEY, name);
+                    //start welcomeActivity
+                    startActivityForResult(startActivityIntent, REQUEST_CODE);
                 }
-
 
             }
         });
