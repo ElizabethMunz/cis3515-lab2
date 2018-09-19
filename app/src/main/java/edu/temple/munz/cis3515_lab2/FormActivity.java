@@ -3,6 +3,7 @@ package edu.temple.munz.cis3515_lab2;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -37,12 +38,11 @@ public class FormActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //get the user data from the form
-                String name = nameInput.getText().toString();
-                String email = emailInput.getText().toString();
+                //get the user data from the form, strip leading/trailing spaces from name & email
+                String name = nameInput.getText().toString().trim();
+                String email = emailInput.getText().toString().trim().toLowerCase();
                 String password = passwordInput.getText().toString();
                 String password2 = passwordInput2.getText().toString();
-                //TODO: sanitize inputs (strip spaces, etc)
 
                 //check if any fields are blank
                 if (name.isEmpty() || email.isEmpty() || password.isEmpty() || password2.isEmpty()) {
@@ -67,7 +67,17 @@ public class FormActivity extends AppCompatActivity {
             }
         });
 
-
+        passwordInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            String info = "Passwords must be at least 8 characters long.";
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if(hasFocus) {
+                    Toast passwordInfo = Toast.makeText(FormActivity.this, info, Toast.LENGTH_LONG);
+                    passwordInfo.setGravity(Gravity.TOP | Gravity.LEFT, 0, 0);
+                    passwordInfo.show();
+                }
+            }
+        });
 
     }
 }

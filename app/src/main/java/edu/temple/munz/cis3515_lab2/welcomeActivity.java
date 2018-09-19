@@ -3,12 +3,14 @@ package edu.temple.munz.cis3515_lab2;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class welcomeActivity extends AppCompatActivity {
 
     TextView welcomeText;
-
+    Button backButton;
 
     public final String NAME_KEY = "nmk";
 
@@ -28,7 +30,16 @@ public class welcomeActivity extends AppCompatActivity {
 
 
 
-        //TODO: implement back button
+        //back button
+        backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goBackIntent = new Intent(welcomeActivity.this, FormActivity.class);
+                startActivity(goBackIntent);
+
+            }
+        });
 
     }
 }
